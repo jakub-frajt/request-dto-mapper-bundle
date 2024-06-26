@@ -1,0 +1,10 @@
+/.idea/
+/.config/
+/.local/
+/.npm/
+/.composer/
+/.run/
+.bash_history
+.phpunit.result.cache
+.php_history
+.ash_history

@@ -1,0 +1,17 @@
+networks:
+  default:
+    name: docker-dev
+    external: true
+
+services:
+  php:
+    build:
+      context: docker/dev/php
+    image: request-dto-mapper-php-dev:8.1.11
+    volumes:
+      - ./:/app
+      - ./docker/dev/php/custom.ini:/usr/local/etc/php/conf.d/php.ini
+      - "${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK}"
+    container_name: request-dto-mapper-dev
+    environment:
+      PHP_IDE_CONFIG: serverName=request-dto-mapper-dev-cli
