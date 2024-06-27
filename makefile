@@ -1,7 +1,7 @@
 uid = $(shell id -u)
 gid = $(shell id -g)
 
-.PHONY: init build build_docker_images start stop restart enter
+.PHONY: init build build_docker_images enter
 
 
 build_docker_images:
@@ -10,7 +10,7 @@ build_docker_images:
 
 composer_install:
 	@echo "Installing PHP dependencies..."
-	#@docker-compose run --rm -u $(uid):$(gid) php composer install
+	@docker-compose run --rm -u $(uid):$(gid) php composer install
 
 build: build_docker_images composer_install
 
@@ -18,5 +18,3 @@ init: build
 
 enter:
 	@docker-compose run --rm -u $(uid):$(gid) php ash
-
-restart: stop start
