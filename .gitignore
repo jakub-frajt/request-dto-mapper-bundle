@@ -8,3 +8,6 @@
 .phpunit.result.cache
 .php_history
 .ash_history
+.composer.lock
+phpunit.xml
+/vendor/
